@@ -4,7 +4,7 @@ import pickle
 # Load saved models and data
 svd_model = joblib.load('svd_model.pkl')   # Load your SVD model
 cosine_sim = joblib.load('cosine_sim.pkl') # Load the cosine similarity matrix
-movies = joblib.load('Movies_Datase.pkl')         # Load the movies DataFrame
+movies = pd.read_csv('movies.csv')
 
 
 # Define the hybrid recommendation logic
@@ -48,6 +48,6 @@ if st.button("Get Recommendations"):
     if recommended_movies:
         st.write("Recommended Movies:")
         for movie, rating in recommended_movies:
-            st.write(f"{movie} - Predicted Rating: {rating:.2f}")
+            st.write(f"{movie}")
     else:
         st.write("No recommendations found.")
